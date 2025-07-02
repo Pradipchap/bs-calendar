@@ -1,5 +1,5 @@
 {
-  "name": "bs_calendar",
+  "name": "bs-calendar",
   "version": "1.0.0",
   "description": "A npm package for nepali calendar with holiday.",
   "main": "dist/index.cjs.js",

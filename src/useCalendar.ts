@@ -388,8 +388,7 @@ export const getNextMonth = (date: IBikDate): IBikDate => {
 
   console.log("goru", bikramSambat.toBik(nextMonthDate));
 
-  const finalDate = { ...bikramSambat.toBik(nextMonthDate), day: totalDays };
-  console.log("ifna", finalDate);
+  const finalDate = { ...nextMonthBikDate, day: totalDays };
   return finalDate;
 };
 
@@ -414,11 +413,24 @@ export const getPrevMonth = (date: IBikDate): IBikDate => {
 export const mapHolidays = (date: IBikDate) => {
   const days = currentMonthDays(date);
   const finalDays = days.map(item => {
-    const holidayItem = HolidaysFromJSON[item.date];
+    const formattedDate = formatDate(item.date);
+    const holidayItem = HolidaysFromJSON[formattedDate];
     if (holidayItem) {
       return { ...item, ...holidayItem };
     }
     return item;
   });
   return finalDays;
+};
+
+function formatDate(dateStr) {
+  const [year, month, day] = dateStr.split("-");
+  const paddedMonth = month.padStart(2, "0");
+  const paddedDay = day.padStart(2, "0");
+  return `${year}-${paddedMonth}-${paddedDay}`;
+}
+
+export const getCurrentDate = () => {
+  const date = new Date().toLocaleString();
+  return bikramSambat.toBik(new Date(date));
 };

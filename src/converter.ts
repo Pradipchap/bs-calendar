@@ -42,7 +42,7 @@ function zPad(x) {
 
 function toBik(greg) {
   // TODO do not use Date.parse(), as per https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse
-  let options = {
+  const options = {
     timeZone: "Asia/Kathmandu",
     year: "numeric",
     month: "numeric",

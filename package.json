@@ -1,6 +1,6 @@
 {
   "name": "bs-calendar-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A npm package for nepali calendar with holiday.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",

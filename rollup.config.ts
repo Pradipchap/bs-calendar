@@ -2,7 +2,6 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-import json from "@rollup/plugin-json";
 
 export default {
   input: "src/index.ts",
@@ -21,8 +20,7 @@ export default {
     peerDepsExternal(), // keep react/react-native external
     resolve(), // locate and bundle third-party modules in node_modules
     commonjs(), // convert CJS modules to ESM
-    typescript({ tsconfig: "./tsconfig.json" }), // compile TS
-    json()
+    typescript({ tsconfig: "./tsconfig.json" }) // compile TS
   ],
   external: ["react", "react-native"]
 };
